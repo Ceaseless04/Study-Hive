@@ -1,15 +1,6 @@
-import React from 'react';
 import './Login.css'
 import { FaUser, FaLock } from 'react-icons/fa';
 
-
-import { FaBeer } from 'react-icons/fa';
-
-class Question extends React.Component {
-  render() {
-    return <h3> Lets go for a <FaBeer />? </h3>
-  }
-}
 
 const Login = () => {
   return (
@@ -18,12 +9,17 @@ const Login = () => {
     <div className='wrapper'> 
     <form action="">
       <h1>Login</h1>
-      <div className="input-box">
-          <input type="text" placeholder='Username' required/>
-          
+      <div className="input-box" style={{ display: 'flex', alignItems: 'left' }}>
+        <span style={{ marginRight: '8px' }}>
+          <FaUser />
+        </span>
+        <input type="text" placeholder="Username" required />
       </div>
       
-      <div className="input-box">
+      <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
+          <span style={{ marginRight: '8px' }}>
+            <FaLock />
+          </span>
           <input type="password" placeholder='Password' required/>
           
 
