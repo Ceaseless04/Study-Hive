@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from './Dashboard/Dashboard.tsx';
 import Login from './Login/Login.tsx';
+import Signup from './Signup/Signup.tsx';
 import { Navigate } from "react-router-dom"; // will use when we have user
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/Dashboard" element={<Dashboard/>} />
           <Route path="/Login" element={<Login/>} />
+          <Route path = "/Signup" element={<Signup/>} />
 
         {/* When we have user */}
 
