@@ -30,5 +30,3 @@ async def get_gemini_result(prompt: str):
     
     except Exception as e:
         return {"error": str(e)}
-
-# To run the app, use:
