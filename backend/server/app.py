@@ -42,7 +42,7 @@ async def get_flashcards(university: str, course: str):
         
         # Send the prompt to the model
         response = model.generate_content(
-            f"Based on the topics {topics} from the course {course} at this school {university}, can you quiz me on the topics provided?",
+            f"Based on the topics {topics} from the course {course} at this school {university}, can you quiz me on the topics provided? Make sure the University is a Valid University",
             generation_config=genai.GenerationConfig(
                 response_mime_type="application/json"  # Keep the response type to JSON
             )
@@ -52,8 +52,6 @@ async def get_flashcards(university: str, course: str):
     
     except Exception as e:
         return {"error": str(e)}
-
-
 
 @app.post("/gemini-testing/")
 async def get_gemini_result(prompt: str):
