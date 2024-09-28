@@ -1,7 +1,6 @@
-from fastapi import FastAPI, HTTPException
-import requests
-from dotenv import load_dotenv
 import os
+from fastapi import FastAPI
+from dotenv import load_dotenv
 import google.generativeai as genai
 
 app = FastAPI()
