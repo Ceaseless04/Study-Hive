@@ -42,7 +42,7 @@ async def get_flashcards(university: str, course: str):
         
         # Send the prompt to the model
         response = model.generate_content(
-            f"Based on the topics {topics} from the course {course} at thi school {university}, can you quiz me on the topics provided?",
+            f"Based on the topics {topics} from the course {course} at this school {university}, can you quiz me on the topics provided?",
             generation_config=genai.GenerationConfig(
                 response_mime_type="application/json"  # Keep the response type to JSON
             )
