@@ -14,7 +14,48 @@ class FlashCards(typing.TypedDict):
     question: str
     answer: str
 
+def get_topics(university: str, course: str):
+    try:
+        model = genai.GenerativeModel("gemini-1.5-flash")
+
+        response = model.generate_content(
+            f"What topics does the course {course} from the school {university} cover?",
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json"
+            )
+        
+        )
+
+        print(response.text)
+
+        return {"topics": response.text}
+    except Exception as e:
+        return {"error": str(e)}
+
 @app.post("/flashcards/")
+async def get_flashcards(university: str, course: str):
+    topics = get_topics(university, course)
+
+    try:
+        # Initialize Gemini model
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        
+        # Send the prompt to the model
+        response = model.generate_content(
+            f"Based on the topics {topics} from the course {course} at thi school {university}, can you quiz me on the topics provided?",
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json"  # Keep the response type to JSON
+            )
+        )
+        
+        return Response(content=response.text, media_type="application/json")
+    
+    except Exception as e:
+        return {"error": str(e)}
+
+
+
+@app.post("/gemini-testing/")
 async def get_gemini_result(prompt: str):
     try:
         # Initialize Gemini model
@@ -30,23 +71,5 @@ async def get_gemini_result(prompt: str):
         
         return Response(content=response.text, media_type="application/json")
     
-    except Exception as e:
-        return {"error": str(e)}
-    
-
-@app.post("/topics")
-async def get_topics(university: str, course: str):
-    try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
-
-        response = model.generate_content(
-            f"What topics does the course {course} from the school {university} cover?",
-            generation_config=genai.GenerationConfig(
-                response_mime_type="application/json"
-            )
-        
-        )
-
-        return Response(content=response.text, media_type="application/json")
     except Exception as e:
         return {"error": str(e)}
