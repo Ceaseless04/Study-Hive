@@ -29,3 +29,40 @@ async def get_gemini_result(prompt: str):
     
     except Exception as e:
         return {"error": str(e)}
+
+
+# Function to fetch universities from the Universities API
+def fetch_us_universities():
+    try:
+        response = requests.get("http://universities.hipolabs.com/search?country=United+States")
+        response.raise_for_status()  # Raise an error if the request fails
+        universities = response.json()
+        return universities
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching universities: {str(e)}")
+
+# Endpoint to insert universities from API to MySQL
+@app.post("/insert-universities/")
+def insert_universities():
+    universities = fetch_us_universities()  # Fetch universities from the API
+
+    # Get the database connection using the existing connection logic
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    try:
+        insert_query = "INSERT INTO universities (university_name) VALUES (%s)"
+        for university in universities:
+            university_name = university["name"]
+            cursor.execute(insert_query, (university_name,))  # Insert university name
+
+        connection.commit()  # Commit the transaction
+    except Exception as e:
+        connection.rollback()  # Rollback in case of error
+        raise HTTPException(status_code=500, detail=f"Error inserting universities: {str(e)}")
+    finally:
+        cursor.close()
+        connection.close()  # Close the connection after completion
+
+    return {"message": "Universities inserted successfully!"}
+
