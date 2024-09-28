@@ -9,7 +9,7 @@ const Login = () => {
     <div className='wrapper'> 
     <form action="">
       <h1>Login</h1>
-      <div className="input-box" style={{ display: 'flex', alignItems: 'left' }}>
+      <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
         <span style={{ marginRight: '8px' }}>
           <FaUser />
         </span>
