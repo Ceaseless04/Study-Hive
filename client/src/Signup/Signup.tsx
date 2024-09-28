@@ -1,12 +1,12 @@
 import './Signup.css'
-
+import { Link } from 'react-router-dom'
 const Signup = () => {
     return (
   
       
       <div className='wrapper'> 
       <form action="">
-        <h1>Login</h1>
+        <h1>Create Account</h1>
         <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
           <span style={{ marginRight: '8px' }}>
             {/* <FaUser /> */}
@@ -18,22 +18,44 @@ const Signup = () => {
             <span style={{ marginRight: '8px' }}>
               {/* <FaLock /> */}
             </span>
+            <input type="text" placeholder='Email' required/>
+        </div>
+
+        <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ marginRight: '8px' }}>
+              {/* <FaLock /> */}
+            </span>
             <input type="password" placeholder='Password' required/>
-            
-  
-  
+
+        </div>
+
+        <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ marginRight: '8px' }}>
+              {/* <FaLock /> */}
+            </span>
+            <input type="text" placeholder='University' required/>
+
+        </div>
+
+        <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ marginRight: '8px' }}>
+              {/* <FaLock /> */}
+            </span>
+            <input type="text" placeholder='Courses' required/>
+
         </div>
   
         <div className="remember-forgotten">
           <label><input type="checkbox" />Remember me</label>
-          <a href="#">Forgot password?</a>
+          
         </div>
   
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
   
         <div className="register-link">
   
-          <p>Do not have an account? <a href="#">Register</a></p>
+          <p>Already have an account? 
+            <Link to="/login"> Log In</Link></p>
         </div>
       </form>
       
