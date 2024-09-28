@@ -8,7 +8,7 @@ app = FastAPI()
 
 load_dotenv()
 
-genai.configure(api_key=os.environ["API_KEY"])
+genai.configure(api_key=os.environ["Gemini_Key"])
 
 @app.post("/gemini-prompt/")
 async def get_gemini_result(prompt: str):
