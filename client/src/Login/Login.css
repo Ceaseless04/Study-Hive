@@ -1,6 +1,10 @@
+body{
+    background: url('../assets/Hola2.png') no-repeat;
+    background-position: center;
+    background-size: cover; 
+}
 .wrapper{
     width: 420px;
-    background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(30px);
     box-shadow: 0 0 10px rgba(255, 255, 255, .2);
