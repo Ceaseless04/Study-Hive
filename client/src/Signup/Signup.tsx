@@ -1,8 +1,10 @@
+import DashNavbar from '../Components/navbar'
 import './Signup.css'
 import { Link } from 'react-router-dom'
 const Signup = () => {
     return (
-  
+      <div>
+      <DashNavbar/>
       
       <div className='wrapper'> 
 
@@ -61,7 +63,7 @@ const Signup = () => {
       </form>
       
       </div>
-      
+      </div>
     )
   }
   

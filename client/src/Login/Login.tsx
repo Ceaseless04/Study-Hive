@@ -5,10 +5,10 @@ import DashNavbar from '../Components/navbar';
 
 const Login = () => {
   return (
-
-    
+  <div>
+    <DashNavbar/>
     <div className='wrapper'> 
-
+    
     <form action="">
       <h1>Login</h1>
       <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
@@ -43,6 +43,7 @@ const Login = () => {
       </div>
     </form>
     
+    </div>
     </div>
     
   )
