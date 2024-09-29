@@ -5,6 +5,7 @@ const Signup = () => {
   
       
       <div className='wrapper'> 
+
       <form action="">
         <h1>Register</h1>
         <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
