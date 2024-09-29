@@ -2,11 +2,13 @@ import './Dashboard.css'
 import 'react-icons/fa';
 import DashNavbar from '../Components/navbar';
 
-
 const Dashboard = () => {
+  // Define the type for a single card
+
+
   return (
     <div className='page_container'>
-        <div>
+        <div className='content'>
             <DashNavbar/>
         </div>
 
