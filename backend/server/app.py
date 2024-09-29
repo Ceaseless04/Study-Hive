@@ -128,4 +128,3 @@ def insert_universities():
 
     return {"message": "Universities inserted successfully!"}
 
-#===================================================
