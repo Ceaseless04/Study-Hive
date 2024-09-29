@@ -1,5 +1,5 @@
 body{
-    background-image: url("../assets/a95402f152dff78374634e0ecb2d423b.jpg");
+    background-image: url("../assets/a95402f152dff78374634e0ecb2d423b.jpg") no-repeat;
     background-position: center;
     background-size: cover; 
 }
