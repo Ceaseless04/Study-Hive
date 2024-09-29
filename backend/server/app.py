@@ -1,5 +1,6 @@
 import os
 
+from backend.db.user_verification import authenticate_user
 from fastapi import FastAPI, HTTPException, Query
 from dotenv import load_dotenv
 import requests
@@ -89,7 +90,17 @@ async def get_gemini_result(prompt: str):
         return {"error": str(e)}
     
     
-    
+# Login endpoint
+@app.post("/login")
+def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = authenticate_user(form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return {"message": "Login successful", "username": user["username"]}
     
 
 # Function to fetch universities from the Universities API

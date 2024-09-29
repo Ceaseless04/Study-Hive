@@ -29,15 +29,5 @@ def authenticate_user(username: str, password: str):
     finally:
         connection.close()
 
-# Login endpoint
-@app.post("/login")
-def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    user = authenticate_user(form_data.username, form_data.password)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    return {"message": "Login successful", "username": user["username"]}
+
 
