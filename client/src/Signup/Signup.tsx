@@ -1,10 +1,13 @@
+import DashNavbar from '../Components/navbar'
 import './Signup.css'
 import { Link } from 'react-router-dom'
 const Signup = () => {
     return (
-  
+      <div>
+      <DashNavbar/>
       
       <div className='wrapper'> 
+
       <form action="">
         <h1>Register</h1>
         <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
@@ -60,7 +63,7 @@ const Signup = () => {
       </form>
       
       </div>
-      
+      </div>
     )
   }
   
