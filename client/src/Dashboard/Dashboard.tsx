@@ -1,10 +1,13 @@
-import './Dashboard.css'
 import 'react-icons/fa';
 import DashNavbar from '../Components/navbar';
 import { Link } from 'react-router-dom';
 
+import './Dashboard.css';
 
 const Dashboard = () => {
+  // Define the type for a single card
+
+
   return (
     <div className='home-page'>
         <DashNavbar/>
@@ -24,6 +27,11 @@ const Dashboard = () => {
                 <span>Start my Journey</span>
               </button>
             </Link>
+    <div className='page_container'>
+        <div className='content'>
+            <DashNavbar/>
+
+            
         </div>
 
     </div>
