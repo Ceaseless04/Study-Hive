@@ -6,7 +6,7 @@ const Signup = () => {
       
       <div className='wrapper'> 
       <form action="">
-        <h1>Create Account</h1>
+        <h1>Register</h1>
         <div className="input-box" style={{ display: 'flex', alignItems: 'center' }}>
           <span style={{ marginRight: '8px' }}>
             {/* <FaUser /> */}
@@ -41,7 +41,7 @@ const Signup = () => {
             <span style={{ marginRight: '8px' }}>
               {/* <FaLock /> */}
             </span>
-            <input type="text" placeholder='Courses' required/>
+            <input type="text" placeholder='Courses EX: COP1234, CEN5678' required/>
 
         </div>
   
