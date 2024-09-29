@@ -1,0 +1,51 @@
+import pymysql
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Database connection setup
+timeout = 10
+connection = pymysql.connect(
+    charset="utf8mb4",
+    connect_timeout=timeout,
+    cursorclass=pymysql.cursors.DictCursor,
+    db="defaultdb",
+    host=os.environ['host'],
+    password=os.environ['password'],
+    read_timeout=timeout,
+    port=17184,
+    user=os.environ['user'],
+    write_timeout=timeout,
+)
+
+def fetch_universities_with_florida():
+    try:
+        cursor = connection.cursor()
+
+        # SQL query to retrieve universities with 'Florida' in their name
+        query = """
+        SELECT university_name 
+        FROM universities 
+        WHERE university_name LIKE %s
+        """
+        cursor.execute(query, ("%Florida%",))  # The % wildcard means any characters before/after 'Florida'
+
+        # Fetch and print the results
+        universities = cursor.fetchall()
+
+        if universities:
+            print("Universities containing 'Florida':")
+            for university in universities:
+                print(university['university_name'])
+        else:
+            print("No universities found containing 'Florida'.")
+            
+            
+        
+
+    finally:
+        connection.close()
+
+#Call the function to fetch and display universities
+fetch_universities_with_florida()
