@@ -1,16 +1,7 @@
 import mysql.connector
 import os
 
-# Define the database connection
-def get_db_connection():
-    return mysql.connector.connect(
-        host='mysql-5be2d08-studi-hive-db1.g.aivencloud.com',
-        port=17184,
-        user=os.environ('user'),
-        password=os.environ('password'),
-        database='defaultdb'  # Start with the default database or 'Study_hive_db' if it already exists
-    )
-    
+from backend.server.app import get_db_connection
 
 # Establish the connection
 connection = get_db_connection()
