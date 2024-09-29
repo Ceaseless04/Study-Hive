@@ -1,7 +1,9 @@
 import os
 
+from fastapi.security import OAuth2PasswordRequestForm
+
 from backend.db.user_verification import authenticate_user
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import Depends, FastAPI, HTTPException, status, Query
 from dotenv import load_dotenv
 import requests
 import typing

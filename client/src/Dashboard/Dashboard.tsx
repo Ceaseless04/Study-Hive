@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-import 'react-icons/fa';
-import DashNavbar from '../Components/navbar';
-import './Dashboard.css';
-
-const Dashboard = () => {
-  // Define the type for a single card
-
-
-  return (
-    <div className='page_container'>
-        <div className='content'>
-            <DashNavbar/>
-
-            
-        </div>
-
-    </div>
-    
-  )
-}
-
-export default Dashboard
-=======
 import 'react-icons/fa';
 import DashNavbar from '../Components/navbar';
 import { Link } from 'react-router-dom';
@@ -51,17 +27,11 @@ const Dashboard = () => {
                 <span>Start my Journey</span>
               </button>
             </Link>
-    <div className='page_container'>
-        <div className='content'>
-            <DashNavbar/>
 
-            
         </div>
-
-    </div>
+      </div>
     
   )
 }
 
 export default Dashboard
->>>>>>> 840af689db5b1e0402f97148a2dd526649e53137
